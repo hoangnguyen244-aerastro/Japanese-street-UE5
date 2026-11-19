@@ -43,7 +43,10 @@ editor_mesh = unreal.get_editor_subsystem(unreal.StaticMeshEditorSubsystem)
 if not editor_mesh:
     raise RuntimeError("StaticMeshEditorSubsystem is unavailable.")
 # Set triangle/per-poly collision for static world geometry. Do not change geometry.
-editor_mesh.set_collision_complexity(mesh, unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+body_setup = mesh.get_editor_property("body_setup")
+if not body_setup:
+    raise RuntimeError("Street StaticMesh has no BodySetup. Stop and inspect the mesh in Static Mesh Editor.")
+body_setup.set_editor_property("collision_trace_flag", unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
 if not assets.save_loaded_asset(mesh):
     raise RuntimeError("Unable to save street mesh collision settings.")
 
