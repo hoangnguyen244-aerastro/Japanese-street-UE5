@@ -1,0 +1,27 @@
+# Unreal Engine generated data
+/Binaries/
+/DerivedDataCache/
+/Intermediate/
+/Saved/
+/.vs/
+*.sln
+*.suo
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.sdf
+
+# IDE and machine-specific settings
+.idea/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Packaging, exported media, local analysis
+/Builds/
+/Releases/
+/RenderOutput/
+/AuditOutput/
+*.tmp
+*.log
